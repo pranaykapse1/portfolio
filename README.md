@@ -20,8 +20,8 @@ For a regular repository instead of a personal site, GitHub Pages publishes at `
 
 - Confirm the role, current employer, dates, and descriptions are accurate and safe to share publicly.
 - Add links to live project demos, repositories, or non-confidential screenshots if you have them. The project diagrams here are illustrative, not screenshots of production work.
-- The resume includes a phone number. It is intentionally not displayed on this public-facing page; email and LinkedIn are provided as contact routes.
-- No date of birth, marital status, gender, or resume download is included.
+- A downloadable résumé PDF is provided; keep its personal details intentional and current.
+- Keep personal details in the public résumé intentional and current.
 - Check the LinkedIn URL and email address in `index.html` before publishing.
 
 The site is designed to work on mobile, tablet, and desktop, and uses semantic sections and a keyboard-accessible navigation menu.
