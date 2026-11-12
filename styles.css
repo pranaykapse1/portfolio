@@ -70,3 +70,15 @@ body{font-size:16px}
   .footer-links{font-size:11px}
   .photo-badge{font-size:9px;left:10px;bottom:10px}
 }
+
+
+/* Recruiter contact links */
+.footer-links .contact-link{display:inline-flex;align-items:center;gap:7px;color:#59635b;font-size:12px}
+.contact-icon{width:18px;height:18px;flex:0 0 18px;display:block}
+.whatsapp-icon,.linkedin-icon{fill:currentColor}
+.whatsapp-icon{color:#25D366}
+.linkedin-icon{color:#0A66C2}
+.email-icon{fill:none;stroke:var(--orange);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.footer-links .contact-link:hover{color:var(--orange)}
+.footer-links .contact-link:focus-visible{outline:2px solid var(--orange);outline-offset:4px;border-radius:2px}
+@media(max-width:650px){.footer{grid-template-columns:1fr}.footer-links{grid-column:1;grid-row:2;justify-content:flex-start;gap:18px}.footer-copy{grid-column:1;grid-row:3}}
