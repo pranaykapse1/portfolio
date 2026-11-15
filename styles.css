@@ -29,3 +29,25 @@ img{max-width:100%}
 .nowrap{white-space:nowrap}.about-photo{width:min(100%,315px);margin:0;position:relative;padding:0 14px 13px 0}.portrait-frame{position:relative;aspect-ratio:.84;overflow:hidden;background:#7b7d84;border:1px solid rgba(17,27,42,.25)}.portrait-frame:before{content:"";position:absolute;z-index:1;inset:9px;border:1px solid rgba(242,238,229,.45);pointer-events:none}.portrait-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 43%;filter:saturate(.92)}.portrait-frame:after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,transparent 63%,rgba(17,27,42,.12));pointer-events:none}.portrait-corner{position:absolute;z-index:2;width:25px;height:25px;pointer-events:none}.portrait-corner-a{top:0;left:0;border-top:3px solid var(--acid);border-left:3px solid var(--acid)}.portrait-corner-b{right:0;bottom:0;border-right:3px solid var(--orange);border-bottom:3px solid var(--orange)}.about-photo:after{content:"";position:absolute;z-index:-1;left:13px;right:0;top:12px;bottom:0;background:var(--acid)}.about-photo figcaption{display:flex;flex-direction:column;gap:4px;padding-top:12px}.about-photo figcaption span:first-child{font:500 10px var(--mono);letter-spacing:.11em;color:var(--navy)}.about-photo figcaption span:last-child{font:400 8px var(--mono);letter-spacing:.06em;color:#657064}.about-photo figcaption b{color:var(--orange);font-weight:500}.portrait-stamp{position:absolute;z-index:3;right:-2px;top:24px;background:var(--navy);color:var(--acid);padding:10px 9px;font:400 8px/1.5 var(--mono);letter-spacing:.08em;text-align:center}
 @media(max-width:1000px){.nowrap{white-space:nowrap}.about-photo{width:260px}}
 @media(max-width:700px){.nowrap{white-space:nowrap}.about-photo{width:min(78%,280px);margin-inline:auto}.portrait-stamp{right:-2px;top:18px}.about-photo figcaption{padding-top:10px}}
+/* CADFuel workflow carousel */
+.cadfuel-slideshow{display:flex;flex-direction:column;background:#e8e0d0}
+.cadfuel-slideshow:after{display:none}
+.cadfuel-slide-stage{position:relative;display:grid;flex:1;min-height:0;place-items:center;padding:10px;background:#e8e0d0}
+.cadfuel-slide{width:100%;height:100%;margin:0;display:grid;place-items:center}
+.cadfuel-slide[hidden]{display:none}
+.cadfuel-slide>a{display:grid;width:100%;height:100%;place-items:center}
+.cadfuel-slideshow .cadfuel-slide img{width:100%;height:100%;object-fit:contain;padding:2px;transform:none!important;filter:none}
+.cadfuel-carousel-controls{position:relative;z-index:2;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;min-height:56px;padding:0 16px;background:var(--paper);border-top:1px solid var(--line)}
+.cadfuel-slide-count{color:var(--navy);font:500 10px var(--mono);letter-spacing:.06em;white-space:nowrap}
+.cadfuel-slide-count i{padding:0 3px;color:var(--orange);font-style:normal}
+.cadfuel-carousel-dots{display:flex;justify-content:center;align-items:center;gap:8px}
+.cadfuel-carousel-dots button,.cadfuel-carousel-buttons button{display:grid;place-items:center;border:1px solid var(--line);background:transparent;color:var(--navy);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.cadfuel-carousel-dots button{width:9px;height:9px;padding:0;border-radius:50%;background:#c8c2b6}
+.cadfuel-carousel-dots button[aria-current="true"]{width:23px;border-radius:8px;background:var(--orange);border-color:var(--orange)}
+.cadfuel-carousel-buttons{display:flex;gap:6px}
+.cadfuel-carousel-buttons button{width:34px;height:34px;font-size:17px;line-height:1}
+.cadfuel-carousel-dots button:hover,.cadfuel-carousel-buttons button:hover{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+.cadfuel-carousel-dots button:focus-visible,.cadfuel-carousel-buttons button:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+@media(max-width:700px){.cadfuel-carousel-controls{min-height:52px;padding:0 11px;gap:9px}.cadfuel-slide-stage{padding:7px}.cadfuel-carousel-buttons button{width:32px;height:32px}.cadfuel-carousel-dots{gap:6px}}.cadfuel-slideshow.image-landscape{height:490px}
+@media(max-width:1000px){.cadfuel-slideshow.image-landscape{height:400px}}
+@media(max-width:700px){.cadfuel-slideshow.image-landscape{height:66vw;min-height:245px;max-height:390px}}
