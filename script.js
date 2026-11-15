@@ -45,8 +45,10 @@ if (cadfuelCarousel) {
   const dotNav = cadfuelCarousel.querySelector('.cadfuel-carousel-dots');
   const previous = cadfuelCarousel.querySelector('[data-carousel-prev]');
   const next = cadfuelCarousel.querySelector('[data-carousel-next]');
+  const toggle = cadfuelCarousel.querySelector('[data-carousel-toggle]');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let activeSlide = 0;
+  let isPaused = reducedMotion;
   let timer;
 
   slides.forEach((slide, index) => {
@@ -68,25 +70,40 @@ if (cadfuelCarousel) {
     count.innerHTML = `${String(activeSlide + 1).padStart(2, '0')} <i>/</i> ${String(slides.length).padStart(2, '0')}`;
   }
 
+  function updateToggle() {
+    toggle.textContent = isPaused ? '▶' : 'Ⅱ';
+    toggle.setAttribute('aria-label', isPaused ? 'Play slideshow' : 'Pause slideshow');
+    toggle.title = isPaused ? 'Play slideshow' : 'Pause slideshow';
+  }
   function stopRotation() {
     window.clearInterval(timer);
     timer = undefined;
   }
-  function startRotation() {
+  function isKeyboardFocused() {
+    return [...cadfuelCarousel.querySelectorAll('a, button')].some((control) => control.matches(':focus-visible'));
+  }
+  function startRotation(force = false) {
     stopRotation();
-    if (!reducedMotion && !document.hidden && !cadfuelCarousel.matches(':hover') && !cadfuelCarousel.contains(document.activeElement)) {
+    if (!isPaused && !document.hidden && (force || !isKeyboardFocused())) {
       timer = window.setInterval(() => showSlide(activeSlide + 1), 6000);
     }
   }
+
   previous.addEventListener('click', () => { showSlide(activeSlide - 1); startRotation(); });
   next.addEventListener('click', () => { showSlide(activeSlide + 1); startRotation(); });
-  cadfuelCarousel.addEventListener('mouseenter', stopRotation);
-  cadfuelCarousel.addEventListener('mouseleave', startRotation);
-  cadfuelCarousel.addEventListener('focusin', stopRotation);
+  toggle.addEventListener('click', () => {
+    isPaused = !isPaused;
+    updateToggle();
+    startRotation(!isPaused);
+  });
+  cadfuelCarousel.addEventListener('focusin', (event) => {
+    if (event.target.matches(':focus-visible')) stopRotation();
+  });
   cadfuelCarousel.addEventListener('focusout', (event) => {
     if (!cadfuelCarousel.contains(event.relatedTarget)) startRotation();
   });
   document.addEventListener('visibilitychange', () => document.hidden ? stopRotation() : startRotation());
   showSlide(0);
+  updateToggle();
   startRotation();
 }

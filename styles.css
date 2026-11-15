@@ -51,3 +51,4 @@ img{max-width:100%}
 @media(max-width:700px){.cadfuel-carousel-controls{min-height:52px;padding:0 11px;gap:9px}.cadfuel-slide-stage{padding:7px}.cadfuel-carousel-buttons button{width:32px;height:32px}.cadfuel-carousel-dots{gap:6px}}.cadfuel-slideshow.image-landscape{height:490px}
 @media(max-width:1000px){.cadfuel-slideshow.image-landscape{height:400px}}
 @media(max-width:700px){.cadfuel-slideshow.image-landscape{height:66vw;min-height:245px;max-height:390px}}
+.cadfuel-carousel-buttons .cadfuel-carousel-toggle{width:auto;padding:0 9px;font:500 9px var(--mono);letter-spacing:.04em}
