@@ -85,7 +85,7 @@ if (cadfuelCarousel) {
   function startRotation(force = false) {
     stopRotation();
     if (!isPaused && !document.hidden && (force || !isKeyboardFocused())) {
-      timer = window.setInterval(() => showSlide(activeSlide + 1), 3000);
+      timer = window.setInterval(() => showSlide(activeSlide + 1), 1000);
     }
   }
 
